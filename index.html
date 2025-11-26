@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liafiz Amazon Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 40px;
+            text-align: center;
+        }
+        .box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            max-width: 350px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 90%;
+            padding: 12px;
+            margin-top: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 15px;
+            padding: 12px 20px;
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>Liafiz Amazon Search</h2>
+        <p>Masukkan kode / angka produk Amazon</p>
+
+        <input type="text" id="asin" placeholder="Contoh: B07PGL2ZSL">
+        <button onclick="search()">Search</button>
+    </div>
+
+    <script>
+        function search() {
+            const asin = document.getElementById('asin').value.trim();
+            if (asin) {
+                window.location.href = `https://www.amazon.com/dp/${asin}?tag=YOURTAG`;
+            }
+        }
+    </script>
+
+</body>
+</html>
