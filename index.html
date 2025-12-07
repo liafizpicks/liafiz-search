@@ -1,79 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Liafiz Picks Search</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            padding: 40px;
-            text-align: center;
-        }
-        .box {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            max-width: 350px;
-            margin: auto;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        input {
-            width: 90%;
-            padding: 12px;
-            margin-top: 10px;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-        }
-        button {
-            margin-top: 15px;
-            padding: 12px 20px;
-            background: black;
-            color: white;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liafiz Picks Search</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        padding: 40px;
+        text-align: center;
+    }
+    .box {
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        max-width: 350px;
+        margin: auto;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    select {
+        width: 90%;
+        padding: 12px;
+        margin-top: 10px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+    }
+    button {
+        margin-top: 15px;
+        padding: 12px 40px;
+        background: black;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+</style>
 </head>
+
 <body>
 
-    <div class="box">
-        <h2>Liafiz Picks Search</h2>
-        <p>Ketik kode produk (contoh: 01, 02, 03)</p>
+<div class="box">
+    <h2>Liafiz Picks Search</h2>
+    <p>Pilih produk untuk buka link Amazon:</p>
 
-        <input type="text" id="code" placeholder="Masukkan kode">
-        <button onclick="searchProduct()">Search</button>
-    </div>
+    <select id="code">
+        <option value="">-- pilih produk --</option>
+        <option value="01">Sepatu Running</option>
+        <option value="02">Vacuum Mini</option>
+        <option value="03">Lampu RGB</option>
+        <option value="04">Produk 04</option>
+        <option value="05">Produk 05</option>
+        <option value="06">Produk 06</option>
+    </select>
 
-    <script>
-        // =========================
-        // MAPPING PRODUK
-        // =========================
-        const mapping = {
-            "01": "B0D1BVHC52", // sepatu running
-            "02": "B0DYJKCVLL", // vacuum mini
-            "03WB": "B0D83ZT6YT",  // lampu RGB
-            "04": "B08Q9SCLXM",
-            "05": "BODQCV6RCC",
-            "06": "B08GWYCGHV",
-        };
+    <button onclick="searchProduct()">Search</button>
+</div>
 
-        const affiliateTag = "liafiz0e-20";
+<script>
+const mapping = {
+    "01": "B01DIWHC52",
+    "02": "B0DYJKVCLV",
+    "03": "B0D3Z1T6Y7",
+    "04": "B0B09SCLWM",
+    "05": "B0B0VGRCC",
+    "06": "B0B0YG8MY"
+};
 
-        function searchProduct() {
-            const code = document.getElementById('code').value.trim();
+const affiliateTag = "liafiz20-20";
 
-            if (!mapping[code]) {
-                alert("Kode tidak ditemukan. Coba 01, 02, atau 03.");
-                return;
-            }
+function searchProduct() {
+    const code = document.getElementById("code").value.trim();
 
-            const asin = mapping[code];
-            window.location.href = `https://www.amazon.com/dp/${asin}?tag=${affiliateTag}`;
-        }
-    </script>
+    if (!code || !mapping[code]) {
+        alert("Silakan pilih produk.");
+        return;
+    }
+
+    const asin = mapping[code];
+    window.location.href = `https://www.amazon.com/dp/${asin}?tag=${affiliateTag}`;
+}
+</script>
 
 </body>
 </html>
