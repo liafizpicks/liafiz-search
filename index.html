@@ -3,78 +3,105 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Liafiz Picks Catalog</title>
+<title>Liafiz Picks Store</title>
+
 <style>
     body {
         font-family: Arial, sans-serif;
         background: #f2f2f2;
-        padding: 20px;
+        margin: 0;
+        padding: 25px;
         text-align: center;
     }
+
     h2 {
-        margin-bottom: 20px;
+        font-size: 20px;
+        margin-bottom: 15px;
     }
-    .grid {
+
+    .store {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        max-width: 450px;
+        gap: 18px;
+        max-width: 500px;
         margin: auto;
     }
-    .item {
+
+    .product {
         background: white;
-        padding: 15px;
         border-radius: 12px;
+        padding: 10px;
         box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        font-size: 14px;
     }
-    .item a {
+
+    .product img {
+        width: 100%;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .name {
+        font-size: 14px;
+        margin: 8px 0;
+        font-weight: bold;
+        min-height: 32px;
+    }
+
+    .buy {
         display: block;
-        margin-top: 10px;
         background: black;
         color: white;
         padding: 10px;
+        margin-top: 8px;
         border-radius: 8px;
         text-decoration: none;
+        font-size: 13px;
         font-weight: bold;
     }
 </style>
-</head>
 
+</head>
 <body>
 
-<h2>🔥 Liafiz Picks 🔥</h2>
+<h2>🔥 Liafiz Picks Store 🔥</h2>
 
-<div class="grid">
+<div class="store">
 
-    <div class="item">
-        Sepatu Running
-        <a href="https://www.amazon.com/dp/B01DIWHC52/?tag=liafiz0e-20">BELI</a>
+    <div class="product">
+        <img src="https://m.media-amazon.com/images/I/81vXE6kgc-L._AC_SX625_.jpg">
+        <div class="name">Sepatu Running</div>
+        <a class="buy" href="https://www.amazon.com/dp/B01DIWHC52/?tag=liafiz0e-20">BELI</a>
     </div>
 
-    <div class="item">
-        Vacuum Mini
-        <a href="https://www.amazon.com/dp/B0DYJKVCLV/?tag=liafiz0e-20">BELI</a>
+    <div class="product">
+        <img src="https://m.media-amazon.com/images/I/61ndT3rP8wL._AC_SX569_.jpg">
+        <div class="name">Vacuum Mini</div>
+        <a class="buy" href="https://www.amazon.com/dp/B0DYJKVCLV/?tag=liafiz0e-20">BELI</a>
     </div>
 
-    <div class="item">
-        Lampu RGB
-        <a href="https://www.amazon.com/dp/B0D3Z1T6Y7/?tag=liafiz0e-20">BELI</a>
+    <div class="product">
+        <img src="https://m.media-amazon.com/images/I/51VA8I0ydPL._AC_SY879_.jpg">
+        <div class="name">Lampu RGB Ambient</div>
+        <a class="buy" href="https://www.amazon.com/dp/B0D3Z1T6Y7/?tag=liafiz0e-20">BELI</a>
     </div>
 
-    <div class="item">
-        Produk 04
-        <a href="https://www.amazon.com/dp/B0B09SCLWM/?tag=liafiz0e-20">BELI</a>
+    <div class="product">
+        <img src="https://m.media-amazon.com/images/I/61cgeXvGFxL.__AC_SX300_SY300_QL70_FMwebp_.jpg">
+        <div class="name">Produk 04</div>
+        <a class="buy" href="https://www.amazon.com/dp/B0B09SCLWM/?tag=liafiz0e-20">BELI</a>
     </div>
 
-    <div class="item">
-        Produk 05
-        <a href="https://www.amazon.com/dp/B0B0VGRCC/?tag=liafiz0e-20">BELI</a>
+    <div class="product">
+        <img src="https://m.media-amazon.com/images/I/61sLuR9KEFL._AC_SX679_.jpg">
+        <div class="name">Produk 05</div>
+        <a class="buy" href="https://www.amazon.com/dp/B0B0VGRCC/?tag=liafiz0e-20">BELI</a>
     </div>
 
-    <div class="item">
-        Produk 06
-        <a href="https://www.amazon.com/dp/B0B0YG8MY/?tag=liafiz0e-20">BELI</a>
+    <div class="product">
+        <img src="https://m.media-amazon.com/images/I/61XzqtFtZwL._AC_SX569_.jpg">
+        <div class="name">Produk 06</div>
+        <a class="buy" href="https://www.amazon.com/dp/B0B0YG8MY/?tag=liafiz0e-20">BELI</a>
     </div>
 
 </div>
