@@ -42,7 +42,7 @@
 
 <div class="box">
     <h2>Liafiz Picks Search</h2>
-    <p>Pilih produk untuk buka link Amazon:</p>
+    <p>Pilih produk:</p>
 
     <select id="code">
         <option value="">-- pilih produk --</option>
@@ -64,10 +64,10 @@ const mapping = {
     "03": "B0D3Z1T6Y7",
     "04": "B0B09SCLWM",
     "05": "B0B0VGRCC",
-    "06": "B0B0YG8MY"
+    "06": "B0B0YG8MY" // pastikan ini 10 karakter
 };
 
-const affiliateTag = "liafiz20-20";
+const affiliateTag = "liafiz0e-20"; // tag kamu yang benar
 
 function searchProduct() {
     const code = document.getElementById("code").value.trim();
@@ -78,7 +78,14 @@ function searchProduct() {
     }
 
     const asin = mapping[code];
-    window.location.href = `https://www.amazon.com/dp/${asin}?tag=${affiliateTag}`;
+
+    if (asin.length !== 10) {
+        alert("Kode ASIN salah / belum lengkap. Cek lagi di Amazon.");
+        return;
+    }
+
+    const url = `https://www.amazon.com/dp/${asin}/?tag=${affiliateTag}`;
+    window.location.href = url;
 }
 </script>
 
