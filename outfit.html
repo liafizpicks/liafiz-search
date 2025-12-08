@@ -1,89 +1,181 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Outfit Cewek Kekinian | Liafiz Picks</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-    }
-    header {
-      background: #000;
-      color: #fff;
-      padding: 14px;
-      text-align: center;
-      font-size: 18px;
-      font-weight: bold;
-    }
-    .container {
-      padding: 14px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      text-decoration: none;
-      color: #000;
-    }
-    .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-    .card h4 {
-      margin: 8px;
-      font-size: 14px;
-    }
-    .card p {
-      margin: 0 8px 10px;
-      font-size: 12px;
-      color: #666;
-    }
-    footer {
-      text-align: center;
-      font-size: 12px;
-      padding: 16px;
-      color: #888;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Outfit Cewek Kekinian | Liafiz Picks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+
+        header {
+            background: #000;
+            color: #fff;
+            padding: 14px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .container {
+            padding: 14px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: #000;
+            display: block;
+            position: relative;
+        }
+
+        .badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            padding: 4px 8px;
+            font-size: 11px;
+            font-weight: bold;
+            color: #fff;
+            border-radius: 6px;
+        }
+
+        .badge-diskon { background: #e53935; }
+        .badge-terlaris { background: #ff9800; }
+        .badge-baru { background: #43a047; }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 8px;
+        }
+
+        .card h4 {
+            margin: 0 0 6px;
+            font-size: 14px;
+        }
+
+        .card p {
+            margin: 0 0 6px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .price {
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: #aaa;
+            margin-right: 6px;
+        }
+
+        .new-price {
+            color: #e53935;
+            font-weight: bold;
+        }
+
+        .btn-buy {
+            display: block;
+            text-align: center;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 13px;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 12px;
+            padding: 16px;
+            color: #888;
+        }
+    </style>
 </head>
+
 <body>
 
 <header>👗 Outfit Cewek Kekinian</header>
 
 <div class="container">
-  ‎<a class="card" href="https://s.shopee.co.id/9fDfBkjV2q" target="_blank">
-‎  <img src="https://i.postimg.cc/q7XH4rqd/sg-11134201-7rfhi-m9tm6vus2ht54e.webp">
-‎  <h4>1. B519 VEST JEANS GAYA KOREA VEST PREMIUM</h4>
-‎  <p>Jeans wanita premium, cocok untuk tampil modis dan kasual</p>
-‎</a>
 
-  ‎<a class="card" href="https://s.shopee.co.id/7Kpl4qpiar" target="_blank">
-‎  <img src="https://i.postimg.cc/RVqRpwNV/id-11134207-7rbkd-m695e4p3vg0jd8-avif.webp">
-‎  <h4>2. Keygirl Celana Pendek Denim</h4>
-‎  <p>Celana pendek denim wanita dengan model pinggang tinggi dan desain ripped yang stylish. Dilengkapi kancing depan yang praktis dan nyaman dipakai sehari-hari. Cocok untuk tampilan kasual yang simpel dan trendy.</p>
-‎</a>
+    <!-- PRODUK 1 -->
+    <div class="card">
+        <span class="badge badge-diskon">DISKON</span>
+        <img src="https://i.postimg.cc/z97H4Vqd/qe-11123401-7rfn-m0nuuw2ht54e.webp">
 
-  <!-- PRODUK 3 -->
-  <a class="card" href="LINK_AFILIASI_PRODUK_3" target="_blank">
-    <img src="https://via.placeholder.com/400x400?text=Outfit+3">
-    <h4>Dress Casual</h4>
-    <p>Simple & elegan</p>
-  </a>
+        <div class="card-content">
+            <h4>1. DS19 Vest Jeans Gaya Korea</h4>
+            <p>Jeans wanita premium, cocok untuk tampil modis dan kasual</p>
 
-  <!-- DUPLIKASI SAMPAI 20 PRODUK -->
+            <div class="price">
+                <span class="old-price">Rp189.000</span>
+                <span class="new-price">Rp129.000</span>
+            </div>
+
+            <a class="btn-buy" href="https://s.shopee.co.id/9FdFBkjV2g" target="_blank">BELI SEKARANG</a>
+        </div>
+    </div>
+
+    <!-- PRODUK 2 -->
+    <div class="card">
+        <span class="badge badge-terlaris">TERLARIS</span>
+        <img src="https://i.postimg.cc/VRp8pNn/1d-11134207-7rbdk-md59e4p3vg0jd8-avif.webp">
+
+        <div class="card-content">
+            <h4>2. Keygirl Celana Pendek Denim</h4>
+            <p>Celana pendek denim wanita dengan model pinggang tinggi dan desain ripped yang stylish.</p>
+
+            <div class="price">
+                <span class="old-price">Rp159.000</span>
+                <span class="new-price">Rp99.000</span>
+            </div>
+
+            <a class="btn-buy" href="https://s.shopee.co.id/7kp14qpiar" target="_blank">BELI SEKARANG</a>
+        </div>
+    </div>
+
+    <!-- PRODUK 3 -->
+    <div class="card">
+        <span class="badge badge-baru">BARU</span>
+        <img src="https://via.placeholder.com/400x400?text=Outfit+3">
+
+        <div class="card-content">
+            <h4>3. Dress Casual Simpel</h4>
+            <p>Nyaman dipakai harian, cocok untuk hangout</p>
+
+            <div class="price">
+                <span class="old-price">Rp199.000</span>
+                <span class="new-price">Rp139.000</span>
+            </div>
+
+            <a class="btn-buy" href="LINK_AFILIASI_PRODUK_3" target="_blank">BELI SEKARANG</a>
+        </div>
+    </div>
+
 </div>
 
 <footer>
-  © Liafiz Picks — Curated for you ✨
+    © Liafiz Picks — Curated for you ✨
 </footer>
 
 </body>
-</html>
+  </html>
