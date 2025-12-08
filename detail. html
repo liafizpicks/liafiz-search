@@ -67,6 +67,41 @@ function addCart(){
   alert("Masuk ke keranjang!");
 }
 </script>
+<script>
+const PRODUCTS = [
+  { id:1, name:"Bucket Hat Canvas", category:"topi", price:129000, image:"https://picsum.photos/id/1005/800/800" },
+  { id:2, name:"Crossbody Mini Bag", category:"tas", price:249000, image:"https://picsum.photos/id/1011/800/800" },
+  { id:3, name:"Kalung Layered Emas", category:"perhiasan", price:189000, image:"https://picsum.photos/id/1027/800/800" },
+  { id:4, name:"Beanie Knit Cozy", category:"topi", price:99000, image:"https://picsum.photos/id/1025/800/800" },
+  { id:5, name:"Tote Bag Organik", category:"tas", price:149000, image:"https://picsum.photos/id/1018/800/800" },
+  { id:6, name:"Gelang Rantai Stainless", category:"perhiasan", price:89000, image:"https://picsum.photos/id/1001/800/800" }
+];
 
+// AMBIL ID DARI URL
+const params = new URLSearchParams(window.location.search);
+const id = Number(params.get("id"));
+
+// CARI PRODUK
+const product = PRODUCTS.find(p => p.id === id);
+
+// JIKA TIDAK ADA
+if(!product){
+  document.body.innerHTML = "<h2 style='text-align:center;margin-top:2rem'>Produk tidak ditemukan</h2>";
+}else{
+  document.getElementById("img").src = product.image;
+  document.getElementById("name").textContent = product.name;
+  document.getElementById("price").textContent = "Rp " + product.price.toLocaleString("id-ID");
+  document.getElementById("desc").textContent =
+    `Kategori: ${product.category}. Produk berkualitas tinggi dan cocok untuk outfit harian.`;
+}
+
+// CART
+function addCart(){
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push(product);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Produk masuk keranjang!");
+}
+</script>
 </body>
 </html>
