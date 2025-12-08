@@ -1,259 +1,97 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Liafiz — Home</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Liafiz — Home</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body{
-      margin:0;
-      font-family:Arial, sans-serif;
-      background:#0b0b0b;
-      color:#e5e7eb;
-    }
+<style>
+*{box-sizing:border-box;font-family:system-ui;}
+body{margin:0;background:#000;color:#fff;padding-top:90px;}
 
-    /* ===== HEADER ===== */
-    .topbar{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:1rem 1.5rem;
-      background:#000;
-      border-bottom:1px solid #1f2933;
-      position:sticky;
-      top:0;
-      z-index:100;
-    }
+.topbar{
+  position:fixed;top:0;left:0;right:0;
+  z-index:9999;
+  display:flex;align-items:center;
+  justify-content:space-between;
+  padding:1rem 1.5rem;
+  background:#000;
+  border-bottom:1px solid #1f2933;
+}
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:.7rem;
-    }
+.brand{display:flex;align-items:center;gap:.6rem;font-weight:700;font-size:1.1rem;}
+.brand img{width:40px;height:40px;border-radius:50%;border:2px solid gold;}
 
-    .logo-img{
-      width:44px;
-      height:44px;
-      border-radius:50%;
-      border:2px solid #d4af37;
-    }
+.nav-right a{
+  color:#fff;text-decoration:none;
+  border:1px solid #333;
+  padding:.4rem .8rem;
+  border-radius:10px;
+  margin-left:.5rem;
+}
 
-    .brand-name{
-      font-size:1.2rem;
-      font-weight:900;
-      color:#d4af37;
-    }
+main{
+  max-width:900px;
+  margin:auto;
+  padding:1rem;
+}
 
-    .brand-tagline{
-      font-size:.75rem;
-      color:#9ca3af;
-    }
+.hero{
+  background:linear-gradient(135deg,#111,#000);
+  border:1px solid #222;
+  border-radius:20px;
+  padding:2rem;
+  text-align:center;
+}
 
-    .controls{
-      display:flex;
-      align-items:center;
-      gap:1rem;
-    }
+.hero h1{margin:0 0 .5rem;color:gold;}
+.hero p{opacity:.8;}
 
-    .nav{
-      display:flex;
-      gap:.6rem;
-    }
+.cta{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+  margin-top:1.5rem;
+}
 
-    .nav a{
-      color:#e5e7eb;
-      text-decoration:none;
-      padding:.4rem .8rem;
-      border-radius:8px;
-      border:1px solid #374151;
-      font-weight:600;
-    }
-
-    .nav a:hover,
-    .nav a.active{
-      background:#d4af37;
-      color:black;
-    }
-
-    /* ===== HERO ===== */
-    .hero{
-      padding:4rem 1.5rem;
-      text-align:center;
-      background:linear-gradient(135deg,#000,#1a1a1a);
-    }
-
-    .hero h1{
-      font-size:2.2rem;
-      color:#d4af37;
-      margin-bottom:.6rem;
-    }
-
-    .hero p{
-      color:#9ca3af;
-      max-width:520px;
-      margin:0 auto 1.2rem;
-    }
-
-    .hero a{
-      display:inline-block;
-      background:#d4af37;
-      color:black;
-      padding:.7rem 1.4rem;
-      text-decoration:none;
-      border-radius:10px;
-      font-weight:700;
-    }
-
-    /* ===== KATEGORI ===== */
-    .section{
-      max-width:1200px;
-      margin:3rem auto;
-      padding:0 1.2rem;
-    }
-
-    .section h2{
-      color:#d4af37;
-      margin-bottom:1.2rem;
-    }
-
-    .categories{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-      gap:1rem;
-    }
-
-    .cat{
-      background:#000;
-      border:1px solid #1f2933;
-      border-radius:12px;
-      padding:1.5rem;
-      text-align:center;
-      font-weight:700;
-      cursor:pointer;
-    }
-
-    /* ===== PRODUK ===== */
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:1.2rem;
-    }
-
-    .card{
-      background:#000;
-      border-radius:14px;
-      border:1px solid #1f2933;
-      overflow:hidden;
-    }
-
-    .card img{
-      width:100%;
-      height:220px;
-      object-fit:cover;
-    }
-
-    .card-body{
-      padding:.9rem;
-    }
-
-    .price{
-      color:#d4af37;
-      font-weight:700;
-      margin:.4rem 0;
-    }
-
-    .btn{
-      display:inline-block;
-      background:#d4af37;
-      color:black;
-      padding:.4rem .9rem;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:700;
-      font-size:.85rem;
-    }
-
-    footer{
-      text-align:center;
-      color:#9ca3af;
-      padding:2rem 1rem;
-      font-size:.85rem;
-    }
-  </style>
+.cta a{
+  text-decoration:none;
+  background:#111;
+  border:1px solid #333;
+  border-radius:16px;
+  padding:1.5rem;
+  text-align:center;
+  color:#fff;
+  font-weight:600;
+}
+</style>
 </head>
 
 <body>
 
-<!-- ===== HEADER ===== -->
 <header class="topbar">
   <div class="brand">
-    <img src="liafiz-logo.webp" class="logo-img">
-    <div>
-      <div class="brand-name">Liafiz</div>
-      <div class="brand-tagline">Premium Fashion & Aksesoris</div>
-    </div>
+    <img src="liafiz-logo.webp">
+    Liafiz
   </div>
-
-  <nav class="nav">
-    <a href="index.html" class="active">Home</a>
-    <a href="outfit.html">Outfit</a>
-    <a href="aksesoris.html">Aksesoris</a>
-  </nav>
+  <div class="nav-right">
+    <a href="index.html">Home</a>
+    <a href="shopee.html">Shopee</a>
+    <a href="amazon.html">Amazon</a>
+  </div>
 </header>
 
-<!-- ===== HERO ===== -->
-<section class="hero">
-  <h1>Upgrade Gaya Lo Bareng Liafiz</h1>
-  <p>Brand fashion premium dengan koleksi outfit & aksesoris pilihan.</p>
-  <a href="aksesoris.html">Belanja Sekarang</a>
-</section>
+<main>
+  <div class="hero">
+    <h1>Welcome to Liafiz Picks</h1>
+    <p>Pilihan produk terbaik dari Shopee & Amazon untuk kebutuhan harian kamu.</p>
 
-<!-- ===== KATEGORI ===== -->
-<section class="section">
-  <h2>Kategori</h2>
-  <div class="categories">
-    <div class="cat" onclick="location.href='outfit.html'">Outfit</div>
-    <div class="cat" onclick="location.href='aksesoris.html'">Aksesoris</div>
-    <div class="cat">Topi</div>
-    <div class="cat">Tas</div>
-  </div>
-</section>
-
-<!-- ===== PRODUK UNGGULAN ===== -->
-<section class="section">
-  <h2>Produk Unggulan</h2>
-  <div class="grid" id="productGrid"></div>
-</section>
-
-<footer>
-  © 2025 Liafiz. All rights reserved.
-</footer>
-
-<script>
-const PRODUCTS = [
-  { id:1, name:"Bucket Hat Canvas", price:129000, image:"https://picsum.photos/id/1005/800/800" },
-  { id:2, name:"Crossbody Mini Bag", price:249000, image:"https://picsum.photos/id/1011/800/800" },
-  { id:3, name:"Kalung Layered Emas", price:189000, image:"https://picsum.photos/id/1027/800/800" },
-  { id:4, name:"Beanie Knit Cozy", price:99000, image:"https://picsum.photos/id/1025/800/800" }
-];
-
-const grid = document.getElementById("productGrid");
-
-PRODUCTS.forEach(p=>{
-  const card=document.createElement("div");
-  card.className="card";
-  card.innerHTML=`
-    <img src="${p.image}">
-    <div class="card-body">
-      <h4>${p.name}</h4>
-      <div class="price">Rp ${p.price.toLocaleString("id-ID")}</div>
-      <a href="detail.html?id=${p.id}" class="btn">Lihat</a>
+    <div class="cta">
+      <a href="shopee.html">Belanja di Shopee</a>
+      <a href="amazon.html">Belanja di Amazon</a>
     </div>
-  `;
-  grid.appendChild(card);
-});
-</script>
+  </div>
+</main>
 
 </body>
 </html>
