@@ -2,113 +2,307 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Detail Produk</title>
+  <title>Liafiz — Detail Produk</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f1f5f9;
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:#0b0b0b;
+      color:#e5e7eb;
     }
-    header {
-      background: #0ea5a4;
-      color: white;
-      padding: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+
+    /* ==== HEADER ==== */
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:1rem 1.5rem;
+      background:#000;
+      border-bottom:1px solid #1f2933;
     }
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      background: white;
-      padding: 1.5rem;
-      border-radius: 14px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:.7rem;
     }
-    img {
-      width: 100%;
-      border-radius: 12px;
-      object-fit: cover;
+
+    .logo-img{
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      border:2px solid #d4af37;
     }
-    .price {
-      font-size: 1.4rem;
-      font-weight: bold;
-      margin: 1rem 0;
+
+    .brand-name{
+      font-size:1.2rem;
+      font-weight:900;
+      color:#d4af37;
     }
-    .btn {
-      padding: .7rem 1.2rem;
-      border: 0;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: 600;
+
+    .nav a{
+      color:#e5e7eb;
+      text-decoration:none;
+      padding:.4rem .8rem;
+      border-radius:8px;
+      border:1px solid #374151;
+      font-weight:600;
+      margin-left:.4rem;
     }
-    .primary {
-      background: #0ea5a4;
-      color: white;
+
+    .nav a:hover,
+    .nav a.active{
+      background:#ff9900;
+      color:black;
     }
-    @media (max-width: 800px) {
-      main {
-        grid-template-columns: 1fr;
+
+    /* ==== CONTENT ==== */
+    .container{
+      max-width:900px;
+      margin:2rem auto;
+      padding:1rem;
+    }
+
+    .card{
+      background:#000;
+      border:1px solid #1f2933;
+      border-radius:16px;
+      padding:1.5rem;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:1.5rem;
+    }
+
+    @media(min-width:768px){
+      .card{
+        grid-template-columns:1fr 1fr;
       }
+    }
+
+    .card img{
+      width:100%;
+      border-radius:14px;
+      border:1px solid #1f2933;
+    }
+
+    .badge{
+      display:inline-block;
+      background:#1f2933;
+      color:#9ca3af;
+      padding:.3rem .7rem;
+      border-radius:999px;
+      font-size:.75rem;
+      margin-bottom:.6rem;
+    }
+
+    h1{
+      margin:.4rem 0;
+      color:#e5e7eb;
+    }
+
+    .price{
+      font-size:1.4rem;
+      font-weight:900;
+      color:#ff9900;
+      margin:.8rem 0;
+    }
+
+    .desc{
+      color:#9ca3af;
+      font-size:.95rem;
+      line-height:1.5;
+    }
+
+    .btn-group{
+      margin-top:1.5rem;
+      display:grid;
+      gap:.7rem;
+    }
+
+    .btn-amazon{
+      background:#ff9900;
+      color:black;
+      border:none;
+      border-radius:12px;
+      padding:.8rem;
+      font-weight:900;
+      font-size:1rem;
+      cursor:pointer;
+    }
+
+    .btn-shopee{
+      background:#ee4d2d;
+      color:white;
+      border:none;
+      border-radius:12px;
+      padding:.8rem;
+      font-weight:900;
+      font-size:1rem;
+      cursor:pointer;
+    }
+
+    footer{
+      text-align:center;
+      padding:1.5rem;
+      color:#9ca3af;
+      font-size:.8rem;
     }
   </style>
 </head>
+
 <body>
 
-<header>
-  <div>Aksesoris.ID</div>
-  <button class="btn" onclick="history.back()">← Kembali</button>
+<!-- ==== HEADER ==== -->
+<header class="topbar">
+  <div class="brand">
+    <img src="liafiz-logo.webp" class="logo-img">
+    <div class="brand-name">Liafiz</div>
+  </div>
+
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="amazon.html">Amazon</a>
+    <a href="https://shopee.co.id" target="_blank">Shopee</a>
+  </nav>
 </header>
 
-<main>
-  <!-- ELEMEN INI WAJIB ADA -->
-  <img id="img">
-  <div>
-    <h2 id="name"></h2>
-    <div class="price" id="price"></div>
-    <p id="desc"></p>
+<!-- ==== CONTENT ==== -->
+<div class="container">
+  <div class="card">
 
-    <button class="btn primary" onclick="addCart()">Tambah ke Keranjang</button>
+    <div>
+      <img id="img" src="">
+    </div>
+
+    <div>
+      <span class="badge" id="category"></span>
+      <h1 id="name"></h1>
+      <div class="price" id="price"></div>
+      <div class="desc" id="desc"></div>
+
+      <div class="btn-group">
+        <button id="btnAmazon" class="btn-amazon" onclick="buyAmazon()">
+          🛒 Beli di Amazon
+        </button>
+
+        <button class="btn-shopee" onclick="buyShopee()">
+          🛍 Beli di Shopee
+        </button>
+      </div>
+    </div>
+
   </div>
-</main>
+</div>
+
+<footer>
+  © 2025 Liafiz — Affiliate Store
+</footer>
 
 <script>
+/* ===== DATABASE PRODUK ===== */
 const PRODUCTS = [
-  { id:1, name:"Bucket Hat Canvas", category:"topi", price:129000, image:"https://picsum.photos/id/1005/800/800" },
-  { id:2, name:"Crossbody Mini Bag", category:"tas", price:249000, image:"https://picsum.photos/id/1011/800/800" },
-  { id:3, name:"Kalung Layered Emas", category:"perhiasan", price:189000, image:"https://picsum.photos/id/1027/800/800" },
-  { id:4, name:"Beanie Knit Cozy", category:"topi", price:99000, image:"https://picsum.photos/id/1025/800/800" },
-  { id:5, name:"Tote Bag Organik", category:"tas", price:149000, image:"https://picsum.photos/id/1018/800/800" },
-  { id:6, name:"Gelang Rantai Stainless", category:"perhiasan", price:89000, image:"https://picsum.photos/id/1001/800/800" }
+  {
+    id:1,
+    name:"Bucket Hat Canvas",
+    category:"Topi",
+    price:129000,
+    image:"https://picsum.photos/id/1005/800/800",
+    amazonCode:"01"
+  },
+  {
+    id:2,
+    name:"Crossbody Mini Bag",
+    category:"Tas",
+    price:249000,
+    image:"https://picsum.photos/id/1011/800/800",
+    amazonCode:"02"
+  },
+  {
+    id:3,
+    name:"Kalung Layered Emas",
+    category:"Perhiasan",
+    price:189000,
+    image:"https://picsum.photos/id/1027/800/800",
+    amazonCode:"03"
+  },
+  {
+    id:4,
+    name:"Beanie Knit Cozy",
+    category:"Topi",
+    price:99000,
+    image:"https://picsum.photos/id/1025/800/800",
+    amazonCode:"04"
+  },
+  {
+    id:5,
+    name:"Tote Bag Organik",
+    category:"Tas",
+    price:149000,
+    image:"https://picsum.photos/id/1018/800/800",
+    amazonCode:"05"
+  },
+  {
+    id:6,
+    name:"Gelang Rantai Stainless",
+    category:"Perhiasan",
+    price:89000,
+    image:"https://picsum.photos/id/1001/800/800",
+    amazonCode:"06"
+  }
 ];
 
-// AMBIL ID DARI URL
+/* ===== DATABASE ASIN AMAZON ===== */
+const AMAZON = {
+  "01": "B0D1BVHC52",
+  "02": "B0DYJKCVLL",
+  "03": "B0D83ZT6YT",
+  "04": "B08Q9SCLXM",
+  "05": "BODQCV6RCC",
+  "06": "B08GWYCGHV"
+};
+
+/* ===== LINK SHOPEE KOLEKSI ===== */
+const SHOPEE_LINK = "https://shopee.co.id";
+
+/* ===== AMBIL ID DARI URL ===== */
 const params = new URLSearchParams(window.location.search);
 const id = Number(params.get("id"));
 
-// CARI PRODUK
 const product = PRODUCTS.find(p => p.id === id);
 
-// JIKA PRODUK TIDAK ADA
-if (!product) {
-  document.body.innerHTML = "<h2 style='text-align:center;margin-top:2rem'>Produk tidak ditemukan</h2>";
-} else {
+if(!product){
+  document.body.innerHTML =
+    "<h2 style='text-align:center;margin-top:3rem'>Produk tidak ditemukan</h2>";
+}else{
   document.getElementById("img").src = product.image;
   document.getElementById("name").textContent = product.name;
-  document.getElementById("price").textContent = "Rp " + product.price.toLocaleString("id-ID");
+  document.getElementById("category").textContent = product.category;
+  document.getElementById("price").textContent =
+    "Rp " + product.price.toLocaleString("id-ID");
   document.getElementById("desc").textContent =
-    `Kategori: ${product.category}. Produk berkualitas tinggi dan cocok untuk outfit harian.`;
+    "Produk pilihan Liafiz, kualitas premium dan cocok untuk kebutuhan harian kamu.";
+
+  document.getElementById("btnAmazon").dataset.code = product.amazonCode;
 }
 
-// CART
-function addCart() {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  cart.push(product);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  alert("Produk masuk keranjang!");
+/* ===== BUY AMAZON ===== */
+function buyAmazon(){
+  const code = document.getElementById("btnAmazon").dataset.code;
+
+  if(AMAZON[code]){
+    const asin = AMAZON[code];
+    const url = `https://www.amazon.com/dp/${asin}?tag=liafiz0e-20`;
+    window.open(url, "_blank");
+  }else{
+    alert("Link Amazon belum tersedia.");
+  }
+}
+
+/* ===== BUY SHOPEE ===== */
+function buyShopee(){
+  window.open(SHOPEE_LINK, "_blank");
 }
 </script>
 
