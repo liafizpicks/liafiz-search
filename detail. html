@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Detail Produk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:#f8fafc;
+    }
+    header{
+      padding:1rem;
+      background:#0ea5a4;
+      color:#fff;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+    main{
+      max-width:900px;
+      margin:2rem auto;
+      background:#fff;
+      padding:1.5rem;
+      border-radius:14px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:1.5rem;
+      box-shadow:0 10px 25px rgba(0,0,0,.08);
+    }
+    img{
+      width:100%;
+      border-radius:12px;
+      object-fit:cover;
+    }
+    h2{
+      margin:.2rem 0;
+    }
+    .price{
+      font-size:1.4rem;
+      font-weight:bold;
+      margin:1rem 0;
+      color:#0f172a;
+    }
+    .btn{
+      padding:.7rem 1.2rem;
+      border:0;
+      border-radius:10px;
+      margin-right:.5rem;
+      cursor:pointer;
+      font-weight:600;
+    }
+    .primary{background:#0ea5a4;color:white;}
+    .outline{background:white;border:1px solid #0ea5a4;color:#0ea5a4;}
+    .tag{
+      background:#f1f5f9;
+      padding:.2rem .7rem;
+      border-radius:999px;
+      font-size:.8rem;
+      display:inline-block;
+    }
+    @media(max-width:750px){
+      main{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div>👜 Aksesoris.ID</div>
+  <button class="btn outline" onclick="history.back()">← Kembali</button>
+</header>
+
+<main>
+  <img id="img">
+  <div>
+    <span class="tag" id="tag"></span>
+    <h2 id="name"></h2>
+    <div class="price" id="price"></div>
+    <p id="desc"></p>
+
+    <button class="btn primary" onclick="addCart()">Tambah ke Keranjang</button>
+    <button class="btn outline" onclick="history.back()">Kembali</button>
+  </div>
+</main>
+
+<script>
+  const product = JSON.parse(localStorage.getItem("detailProduct"));
+
+  if(!product){
+    document.body.innerHTML = "<h2 style='text-align:center;margin-top:2rem'>Produk tidak ditemukan</h2>";
+  }
+
+  document.getElementById("img").src = product.image;
+  document.getElementById("name").textContent = product.name;
+  document.getElementById("price").textContent = "Rp " + product.price.toLocaleString('id-ID');
+  document.getElementById("tag").textContent = product.tag;
+  document.getElementById("desc").textContent =
+    `Kategori: ${product.category}. Aksesoris berkualitas tinggi, nyaman dipakai, dan cocok untuk berbagai outfit harian maupun formal.`;
+
+  function addCart(){
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Produk berhasil ditambahkan ke keranjang!");
+  }
+</script>
+
+</body>
+</html>
