@@ -1,409 +1,216 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Aksesoris — Toko</title>
-  <meta name="description" content="Koleksi aksesoris stylish — tas, topi, perhiasan, dan lainnya." />
+  <meta charset="UTF-8">
+  <title>Liafiz — Aksesoris</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
-    /* Reset sederhana */
-    *,*::before,*::after{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color:#1f2937;
-      background: linear-gradient(180deg,#f8fafc 0%, #ffffff 60%);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b0b0b;
+      color: #e5e7eb;
     }
 
-    /* Topbar */
+    /* ===== HEADER LIAFIZ ===== */
     .topbar{
       display:flex;
-      align-items:center;
       justify-content:space-between;
-      gap:1rem;
+      align-items:center;
       padding:1rem 1.5rem;
-      background:rgba(255,255,255,0.7);
-      backdrop-filter: blur(6px);
-      border-bottom:1px solid rgba(15,23,42,0.04);
+      background:#000;
+      border-bottom:1px solid #1f2933;
       position:sticky;
       top:0;
-      z-index:50;
+      z-index:100;
     }
+
     .brand{
       display:flex;
-      gap:.75rem;
       align-items:center;
-      font-weight:700;
-      color:#0f172a;
-    }
-    .brand .logo{
-      width:40px;height:40px;border-radius:8px;
-      background:linear-gradient(135deg,#f97316,#f43f5e);
-      display:inline-flex;align-items:center;justify-content:center;color:white;font-weight:800;
-      box-shadow: 0 4px 14px rgba(244,63,94,0.12);
+      gap:.7rem;
     }
 
-    /* Controls */
+    .logo-img{
+      width:44px;
+      height:44px;
+      object-fit:cover;
+      border-radius:50%;
+      border:2px solid #d4af37;
+      background:#000;
+    }
+
+    .brand-name{
+      font-size:1.2rem;
+      font-weight:900;
+      color:#d4af37;
+      letter-spacing:1px;
+    }
+
+    .brand-tagline{
+      font-size:.75rem;
+      color:#9ca3af;
+    }
+
     .controls{
       display:flex;
-      gap:.75rem;
       align-items:center;
-      flex-wrap:wrap;
+      gap:1rem;
     }
-    .search{
-      display:flex;align-items:center;
-      background:#fff;padding:.4rem .6rem;border-radius:10px;border:1px solid rgba(15,23,42,0.06);
-      box-shadow: 0 1px 2px rgba(2,6,23,0.02);
-    }
+
     .search input{
-      border:0;outline:0;font-size:.95rem;background:transparent;
-      width:220px;
-    }
-    .chip{
-      padding:.45rem .7rem;border-radius:999px;background:#fff;border:1px solid rgba(15,23,42,0.06);
-      font-size:.9rem;cursor:pointer;
+      padding:.45rem .7rem;
+      border-radius:8px;
+      border:1px solid #374151;
+      background:#0b0b0b;
+      color:white;
     }
 
-    /* Layout */
-    .container{
-      max-width:1200px;margin:1.25rem auto;padding:0 1rem;
-    }
-    .hero{
+    .nav{
       display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:1rem;
-      margin-bottom:1rem;
+      gap:.6rem;
     }
-    .hero .title{
-      font-size:1.5rem;font-weight:700;
-      line-height:1.05;
+
+    .nav a{
+      text-decoration:none;
+      color:#e5e7eb;
+      font-weight:600;
+      padding:.4rem .8rem;
+      border-radius:8px;
+      border:1px solid #374151;
     }
-    .hero .subtitle{color:#475569;font-size:.95rem;margin-top:.3rem}
 
-    /* Grid */
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:1rem;
+    .nav a:hover,
+    .nav a.active{
+      background:#d4af37;
+      color:black;
     }
-    @media (max-width: 1000px){ .grid{grid-template-columns:repeat(3,1fr);} }
-    @media (max-width: 700px){ .grid{grid-template-columns:repeat(2,1fr);} .search input{width:120px;} }
-    @media (max-width: 420px){ .grid{grid-template-columns:1fr;} .hero{flex-direction:column;align-items:flex-start;} }
 
-    .card{
-      background:#fff;border-radius:12px;padding:.6rem;border:1px solid rgba(15,23,42,0.04);
-      box-shadow:0 6px 18px rgba(2,6,23,0.04);
-      display:flex;flex-direction:column;gap:.6rem;
-      transition:transform .18s ease, box-shadow .18s ease;
+    /* ===== PRODUK GRID ===== */
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
     }
-    .card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(2,6,23,0.08);}
 
-    .media{
-      aspect-ratio:1.2/1;border-radius:10px;overflow:hidden;background:#f8fafc;display:flex;align-items:center;justify-content:center;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
     }
-    .media img{width:100%;height:100%;object-fit:cover;display:block}
 
-    .meta{display:flex;justify-content:space-between;align-items:center;padding-top:.25rem}
-    .name{font-weight:600}
-    .price{font-weight:700;color:#0f172a}
-    .tag{font-size:.8rem;color:#64748b;padding:.15rem .45rem;border-radius:999px;background:#f1f5f9}
-
-    .actions{display:flex;gap:.5rem}
-    .btn{
-      padding:.45rem .6rem;border-radius:8px;border:0;cursor:pointer;font-weight:600;
-      display:inline-flex;align-items:center;gap:.5rem;
-      box-shadow:0 2px 6px rgba(2,6,23,0.04);
+    .card {
+      background: #000;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #1f2933;
     }
-    .btn-primary{background:#0ea5a4;color:white}
-    .btn-outline{background:#fff;border:1px solid rgba(15,23,42,0.06)}
 
-    /* Quick view modal */
-    .modal-backdrop{
-      position:fixed;inset:0;background:rgba(2,6,23,0.45);display:none;align-items:center;justify-content:center;padding:1rem;z-index:80;
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
     }
-    .modal{
-      width:min(900px,100%);background:#fff;border-radius:12px;padding:1rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;
-      box-shadow:0 18px 40px rgba(2,6,23,0.3);
+
+    .card-body {
+      padding: .9rem;
     }
-    .modal .m-media{border-radius:8px;overflow:hidden;height:100%}
-    .m-info h3{margin:0;font-size:1.2rem}
-    .m-info p{color:#475569;margin-top:.5rem}
-    .close{background:transparent;border:0;font-size:1.2rem;cursor:pointer;padding:.25rem;border-radius:6px}
 
-    /* Footer */
-    footer{margin-top:2rem;padding:2rem 1rem;text-align:center;color:#94a3b8}
+    .card h3 {
+      font-size: 1rem;
+      margin: 0 0 .4rem;
+      color: #f9fafb;
+    }
 
-    /* Small utilities */
-    .row{display:flex;align-items:center;gap:.5rem}
-    .muted{color:#64748b;font-size:.9rem}
+    .price {
+      font-weight: bold;
+      color: #d4af37;
+      margin-bottom: .6rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: .45rem .8rem;
+      background: #d4af37;
+      color: black;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .85rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #9ca3af;
+      font-size: .85rem;
+    }
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="brand" aria-label="Toko Aksesoris">
-      <div class="logo">AK</div>
-      <div>
-        <div style="font-size:1rem">Aksesoris.ID</div>
-        <div style="font-size:.8rem;color:#64748b;margin-top:2px">Koleksi stylish & terkurasi</div>
-      </div>
+
+<!-- ===== HEADER ===== -->
+<header class="topbar">
+  <div class="brand">
+    <img src="liafiz-logo.webp" class="logo-img" alt="Liafiz Logo">
+    <div>
+      <div class="brand-name">Liafiz</div>
+      <div class="brand-tagline">Premium Fashion & Aksesoris</div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="search">
+      <input type="search" placeholder="Cari di Liafiz...">
     </div>
 
-    <div class="controls" role="navigation" aria-label="Kontrol pencarian dan filter">
-      <div class="search" title="Cari produk">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#94a3b8" viewBox="0 0 24 24"><path d="M21 20l-5.6-5.6A7 7 0 1018 18.4L23 23z"></path></svg>
-        <input id="searchInput" type="search" placeholder="Cari: topi, tas, gelang..." aria-label="Cari produk">
-      </div>
-      <button class="chip" id="filterAll">Semua</button>
-      <button class="chip" data-filter="topi">Topi</button>
-      <button class="chip" data-filter="tas">Tas</button>
-      <button class="chip" data-filter="perhiasan">Perhiasan</button>
-      <div style="display:flex;align-items:center;gap:.5rem">
-        <select id="sortSelect" class="chip" aria-label="Urutkan">
-          <option value="popular">Terpopuler</option>
-          <option value="new">Terbaru</option>
-          <option value="price-asc">Harga: Rendah → Tinggi</option>
-          <option value="price-desc">Harga: Tinggi → Rendah</option>
-        </select>
-      </div>
+    <nav class="nav">
+      <a href="index.html" class="chip">Home</a>
+      <a href="outfit.html" class="chip">Outfit</a>
+      <a href="aksesoris.html" class="chip active">Aksesoris</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== PRODUK ===== -->
+<main>
+  <div class="grid" id="productGrid"></div>
+</main>
+
+<footer>
+  © 2025 Liafiz. All rights reserved.
+</footer>
+
+<!-- ===== SCRIPT PRODUK ===== -->
+<script>
+const PRODUCTS = [
+  { id:1, name:"Bucket Hat Canvas", category:"topi", price:129000, image:"https://picsum.photos/id/1005/800/800" },
+  { id:2, name:"Crossbody Mini Bag", category:"tas", price:249000, image:"https://picsum.photos/id/1011/800/800" },
+  { id:3, name:"Kalung Layered Emas", category:"perhiasan", price:189000, image:"https://picsum.photos/id/1027/800/800" },
+  { id:4, name:"Beanie Knit Cozy", category:"topi", price:99000, image:"https://picsum.photos/id/1025/800/800" },
+  { id:5, name:"Tote Bag Organik", category:"tas", price:149000, image:"https://picsum.photos/id/1018/800/800" },
+  { id:6, name:"Gelang Rantai Stainless", category:"perhiasan", price:89000, image:"https://picsum.photos/id/1001/800/800" }
+];
+
+const grid = document.getElementById("productGrid");
+
+PRODUCTS.forEach(p => {
+  const card = document.createElement("div");
+  card.className = "card";
+
+  card.innerHTML = `
+    <img src="${p.image}">
+    <div class="card-body">
+      <h3>${p.name}</h3>
+      <div class="price">Rp ${p.price.toLocaleString("id-ID")}</div>
+      <a class="btn" href="detail.html?id=${p.id}">Lihat</a>
     </div>
-  </header>
+  `;
 
-  <main class="container" id="main">
-    <section class="hero" aria-labelledby="judul">
-      <div>
-        <h1 id="judul" class="title">Aksesoris Pilihan</h1>
-        <div class="subtitle">Tas, topi, perhiasan, dan aksesori lain untuk melengkapi outfit-mu.</div>
-      </div>
-      <div class="row muted">
-        <div id="resultCount">12 produk</div>
-      </div>
-    </section>
-
-    <section>
-      <div id="productGrid" class="grid" aria-live="polite">
-        <!-- Kartu produk akan di-render di sini -->
-      </div>
-    </section>
-
-    <section style="margin-top:1.25rem;display:flex;justify-content:center">
-      <button id="loadMore" class="btn btn-outline">Muat lebih banyak</button>
-    </section>
-
-    <!-- Modal Quick View -->
-    <div id="modalBackdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">
-      <div class="modal" role="document">
-        <div class="m-media" id="modalImage">
-          <!-- image -->
-        </div>
-        <div class="m-info">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <h3 id="modalTitle">Nama Produk</h3>
-            <button class="close" id="closeModal" aria-label="Tutup">&times;</button>
-          </div>
-          <p id="modalDesc" class="muted">Deskripsi produk singkat akan muncul di sini.</p>
-          <div style="margin-top:.6rem">
-            <div style="font-size:1.1rem;font-weight:700" id="modalPrice">Rp 0</div>
-            <div style="margin-top:.6rem;display:flex;gap:.6rem">
-              <button id="addCart" class="btn btn-primary">Tambah ke keranjang</button>
-              <button id="wishlist" class="btn btn-outline">❤ Simpan</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </main>
-
-  <footer>
-    &copy; <span id="year"></span> Aksesoris.ID — Semua hak cipta dilindungi.
-  </footer>
-
-  <script>
-    /* --- Data produk contoh --- */
-    const PRODUCTS = [
-      { id:1,name:"Bucket Hat Canvas",category:"topi",price:129000,image:"https://picsum.photos/id/1005/800/800",tag:"Tren"},
-      { id:2,name:"Crossbody Mini Bag",category:"tas",price:249000,image:"https://picsum.photos/id/1011/800/800",tag:"Best-seller"},
-      { id:3,name:"Kalung Layered Emas",category:"perhiasan",price:189000,image:"https://picsum.photos/id/1027/800/800",tag:"Premium"},
-      { id:4,name:"Beanie Knit Cozy",category:"topi",price:99000,image:"https://picsum.photos/id/1025/800/800",tag:"Hangat"},
-      { id:5,name:"Tote Bag Organik",category:"tas",price:149000,image:"https://picsum.photos/id/1018/800/800",tag:"Eco"},
-      { id:6,name:"Gelang Rantai Stainless",category:"perhiasan",price:89000,image:"https://picsum.photos/id/1001/800/800",tag:"Minimal"},
-      { id:7,name:"Topi Trucker Retro",category:"topi",price:119000,image:"https://picsum.photos/id/1032/800/800",tag:"Retro"},
-      { id:8,name:"Clutch Pesta Glitter",category:"tas",price:299000,image:"https://picsum.photos/id/1021/800/800",tag:"Pesta"},
-      { id:9,name:"Anting Hoop Besar",category:"perhiasan",price:79000,image:"https://picsum.photos/id/1016/800/800",tag:"Statement"},
-      { id:10,name:"Sling Bag Travel",category:"tas",price:219000,image:"https://picsum.photos/id/1013/800/800",tag:"Travel"},
-      { id:11,name:"Bandana Multiprint",category:"topi",price:39000,image:"https://picsum.photos/id/1020/800/800",tag:"Casual"},
-      { id:12,name:"Cincin Stackable",category:"perhiasan",price:129000,image:"https://picsum.photos/id/1012/800/800",tag:"Set"}
-    ];
-
-    // state
-    let filtered = [...PRODUCTS];
-    let visibleCount = 8;
-
-    const grid = document.getElementById('productGrid');
-    const resultCount = document.getElementById('resultCount');
-    const modalBackdrop = document.getElementById('modalBackdrop');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalDesc = document.getElementById('modalDesc');
-    const modalPrice = document.getElementById('modalPrice');
-    const modalImage = document.getElementById('modalImage');
-    const closeModal = document.getElementById('closeModal');
-    const loadMore = document.getElementById('loadMore');
-    const searchInput = document.getElementById('searchInput');
-    const sortSelect = document.getElementById('sortSelect');
-
-    // render produk
-    function formatRupiah(n){
-      return 'Rp ' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    }
-
-    function renderProducts(){
-      grid.innerHTML = '';
-      const toShow = filtered.slice(0, visibleCount);
-      if(toShow.length === 0){
-        grid.innerHTML = '<div style="grid-column:1/-1;padding:2rem;text-align:center;color:#94a3b8">Tidak ada produk cocok.</div>';
-      } else {
-        toShow.forEach(p => {
-          const card = document.createElement('article');
-          card.className = 'card';
-          card.setAttribute('tabindex','0');
-          card.innerHTML = `
-            <div class="media" aria-hidden="true">
-              <img src="${p.image}" alt="${p.name}">
-            </div>
-            <div>
-              <div class="meta">
-                <div>
-                  <div class="name">${p.name}</div>
-                  <div class="muted" style="font-size:.85rem;margin-top:4px">${p.category} · <span class="tag">${p.tag}</span></div>
-                </div>
-                <div style="text-align:right">
-                  <div class="price">${formatRupiah(p.price)}</div>
-                </div>
-              </div>
-              <div style="margin-top:.5rem;display:flex;justify-content:space-between;align-items:center">
-                <div class="actions">
-                  <button class="btn btn-primary" data-action="add" data-id="${p.id}">Tambah</button>
-                  <a class="btn btn-outline" href="detail.html?id=1">Lihat</a>
-                </div>
-              </div>
-            </div>
-          `;
-          grid.appendChild(card);
-        });
-      }
-      resultCount.textContent = `${filtered.length} produk`;
-      loadMore.style.display = filtered.length > visibleCount ? 'inline-flex' : 'none';
-    }
-
-    // event delegation untuk tombol dalam grid
-    grid.addEventListener('click', (e) => {
-      const btn = e.target.closest('button');
-      if(!btn) return;
-      const action = btn.getAttribute('data-action');
-      const id = Number(btn.getAttribute('data-id'));
-      const prod = PRODUCTS.find(p=>p.id===id);
-      if(action === 'add'){
-        alert(`"${prod.name}" ditambahkan ke keranjang (simulasi).`);
-      } else if(action === 'view'){
-        openModal(prod);
-      }
-    });
-
-    // quick view modal
-    function openModal(prod){
-      modalTitle.textContent = prod.name;
-      modalDesc.textContent = `Kategori: ${prod.category}. Tag: ${prod.tag}. Deskripsi singkat: aksesori ini cocok dipadukan dengan outfit kasual maupun formal.`;
-      modalPrice.textContent = formatRupiah(prod.price);
-      modalImage.innerHTML = `<img src="${prod.image}" alt="${prod.name}" style="width:100%;height:100%;object-fit:cover">`;
-      modalBackdrop.style.display = 'flex';
-      modalBackdrop.setAttribute('aria-hidden','false');
-      closeModal.focus();
-    }
-    function closeModalFn(){
-      modalBackdrop.style.display = 'none';
-      modalBackdrop.setAttribute('aria-hidden','true');
-    }
-    closeModal.addEventListener('click', closeModalFn);
-    modalBackdrop.addEventListener('click', (e)=>{
-      if(e.target === modalBackdrop) closeModalFn();
-    });
-    document.addEventListener('keydown', (e)=>{
-      if(e.key === 'Escape') closeModalFn();
-    });
-
-    // filter & search
-    document.querySelectorAll('.chip[data-filter]').forEach(btn=>{
-      btn.addEventListener('click', ()=> {
-        const cat = btn.getAttribute('data-filter');
-        filtered = PRODUCTS.filter(p=>p.category === cat);
-        visibleCount = 8;
-        renderProducts();
-      });
-    });
-    document.getElementById('filterAll').addEventListener('click', ()=>{
-      filtered = [...PRODUCTS];
-      visibleCount = 8;
-      renderProducts();
-    });
-
-    searchInput.addEventListener('input', (e)=>{
-      const q = e.target.value.trim().toLowerCase();
-      if(q === ''){
-        filtered = [...PRODUCTS];
-      } else {
-        filtered = PRODUCTS.filter(p => (p.name + ' ' + p.category + ' ' + p.tag).toLowerCase().includes(q));
-      }
-      visibleCount = 8;
-      renderProducts();
-    });
-
-    // sort
-    sortSelect.addEventListener('change', ()=>{
-      const val = sortSelect.value;
-      if(val === 'popular' || val === 'new'){
-        // untuk demo, 'popular' = id asc, 'new' = id desc
-        filtered.sort((a,b)=> val==='popular' ? a.id - b.id : b.id - a.id);
-      } else if(val === 'price-asc'){
-        filtered.sort((a,b)=> a.price - b.price);
-      } else if(val === 'price-desc'){
-        filtered.sort((a,b)=> b.price - a.price);
-      }
-      visibleCount = 8;
-      renderProducts();
-    });
-
-    // load more
-    loadMore.addEventListener('click', ()=>{
-      visibleCount += 6;
-      renderProducts();
-    });
-
-    // initial render
-    (function init(){
-      document.getElementById('year').textContent = new Date().getFullYear();
-      renderProducts();
-    })();
-
-    // Accessibility: keyboard quick-view on Enter when card focused
-    grid.addEventListener('keydown', (e)=>{
-      if(e.key === 'Enter'){
-        const card = e.target.closest('.card');
-        if(!card) return;
-        const btn = card.querySelector('button[data-action="view"]');
-        if(btn) btn.click();
-      }
-    });
-  </script>
-  <script>
-  function goDetail(id){
-    const product = PRODUCTS.find(p => p.id === id);
-    localStorage.setItem("detailProduct", JSON.stringify(product));
-    window.location.href = "detail.html";
-  }
+  grid.appendChild(card);
+});
 </script>
+
 </body>
-  </html>
+</html>
