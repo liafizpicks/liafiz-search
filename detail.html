@@ -15,13 +15,16 @@
 
     /* ==== HEADER ==== */
     .topbar{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:1rem 1.5rem;
-      background:#000;
-      border-bottom:1px solid #1f2933;
-    }
+  position:sticky;
+  top:0;
+  z-index:1000;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 1.5rem;
+  background:#000;
+  border-bottom:1px solid #1f2933;
+}
 
     .brand{
       display:flex;
@@ -60,10 +63,10 @@
 
     /* ==== CONTENT ==== */
     .container{
-      max-width:900px;
-      margin:2rem auto;
-      padding:1rem;
-    }
+  max-width:900px;
+  margin:4.5rem auto 2rem;
+  padding:1rem;
+}
 
     .card{
       background:#000;
