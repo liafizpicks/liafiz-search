@@ -5,106 +5,67 @@
   <title>Detail Produk</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body{
-      margin:0;
-      font-family:Arial, sans-serif;
-      background:#f8fafc;
-    }
-    header{
-      padding:1rem;
-      background:#0ea5a4;
-      color:#fff;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-    main{
-      max-width:900px;
-      margin:2rem auto;
-      background:#fff;
-      padding:1.5rem;
-      border-radius:14px;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:1.5rem;
-      box-shadow:0 10px 25px rgba(0,0,0,.08);
-    }
-    img{
-      width:100%;
-      border-radius:12px;
-      object-fit:cover;
-    }
-    h2{
-      margin:.2rem 0;
-    }
-    .price{
-      font-size:1.4rem;
-      font-weight:bold;
-      margin:1rem 0;
-      color:#0f172a;
-    }
-    .btn{
-      padding:.7rem 1.2rem;
-      border:0;
-      border-radius:10px;
-      margin-right:.5rem;
-      cursor:pointer;
-      font-weight:600;
-    }
-    .primary{background:#0ea5a4;color:white;}
-    .outline{background:white;border:1px solid #0ea5a4;color:#0ea5a4;}
-    .tag{
-      background:#f1f5f9;
-      padding:.2rem .7rem;
-      border-radius:999px;
-      font-size:.8rem;
-      display:inline-block;
-    }
-    @media(max-width:750px){
-      main{grid-template-columns:1fr;}
-    }
+    body{margin:0;font-family:Arial;background:#f1f5f9}
+    header{background:#0ea5a4;color:white;padding:1rem;display:flex;justify-content:space-between;align-items:center}
+    main{max-width:900px;margin:2rem auto;background:white;padding:1.5rem;border-radius:14px;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+    img{width:100%;border-radius:12px}
+    .price{font-size:1.4rem;font-weight:bold;margin:1rem 0}
+    .btn{padding:.7rem 1.2rem;border:0;border-radius:10px;cursor:pointer;font-weight:600}
+    .primary{background:#0ea5a4;color:white}
+    @media(max-width:800px){main{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
 
 <header>
-  <div>👜 Aksesoris.ID</div>
-  <button class="btn outline" onclick="history.back()">← Kembali</button>
+  <div>Aksesoris.ID</div>
+  <button class="btn" onclick="history.back()">← Kembali</button>
 </header>
 
 <main>
   <img id="img">
   <div>
-    <span class="tag" id="tag"></span>
     <h2 id="name"></h2>
     <div class="price" id="price"></div>
     <p id="desc"></p>
-
     <button class="btn primary" onclick="addCart()">Tambah ke Keranjang</button>
-    <button class="btn outline" onclick="history.back()">Kembali</button>
   </div>
 </main>
 
 <script>
-  const product = JSON.parse(localStorage.getItem("detailProduct"));
+/* === DATA PRODUK (HARUS SAMA DENGAN aksesoris.html) === */
+const PRODUCTS = [
+  { id:1,name:"Bucket Hat Canvas",category:"topi",price:129000,image:"https://picsum.photos/id/1005/800/800"},
+  { id:2,name:"Crossbody Mini Bag",category:"tas",price:249000,image:"https://picsum.photos/id/1011/800/800"},
+  { id:3,name:"Kalung Layered Emas",category:"perhiasan",price:189000,image:"https://picsum.photos/id/1027/800/800"},
+  { id:4,name:"Beanie Knit Cozy",category:"topi",price:99000,image:"https://picsum.photos/id/1025/800/800"},
+  { id:5,name:"Tote Bag Organik",category:"tas",price:149000,image:"https://picsum.photos/id/1018/800/800"},
+  { id:6,name:"Gelang Rantai Stainless",category:"perhiasan",price:89000,image:"https://picsum.photos/id/1001/800/800"}
+];
 
-  if(!product){
-    document.body.innerHTML = "<h2 style='text-align:center;margin-top:2rem'>Produk tidak ditemukan</h2>";
-  }
+/* === AMBIL ID DARI URL === */
+const params = new URLSearchParams(window.location.search);
+const id = Number(params.get("id"));
 
+const product = PRODUCTS.find(p => p.id === id);
+
+if(!product){
+  document.body.innerHTML = "<h2 style='text-align:center;margin-top:2rem'>Produk tidak ditemukan</h2>";
+}else{
   document.getElementById("img").src = product.image;
   document.getElementById("name").textContent = product.name;
-  document.getElementById("price").textContent = "Rp " + product.price.toLocaleString('id-ID');
-  document.getElementById("tag").textContent = product.tag;
+  document.getElementById("price").textContent = "Rp " + product.price.toLocaleString("id-ID");
   document.getElementById("desc").textContent =
-    `Kategori: ${product.category}. Aksesoris berkualitas tinggi, nyaman dipakai, dan cocok untuk berbagai outfit harian maupun formal.`;
+    `Kategori: ${product.category}. Produk berkualitas tinggi dan cocok untuk outfit harian.`;
+}
 
-  function addCart(){
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.push(product);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    alert("Produk berhasil ditambahkan ke keranjang!");
-  }
+/* === CART SEDERHANA === */
+function addCart(){
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push(product);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Masuk ke keranjang!");
+}
 </script>
 
 </body>
