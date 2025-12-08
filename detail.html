@@ -1,311 +1,199 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Liafiz — Detail Produk</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Liafiz – Detail Produk</title>
 
-  <style>
-    body{
-      margin:0;
-      font-family:Arial, sans-serif;
-      background:#0b0b0b;
-      color:#e5e7eb;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:system-ui, -apple-system, sans-serif;
+}
 
-    /* ==== HEADER ==== */
-    .topbar{
-  position:sticky;
+body{
+  background:#000;
+  color:#fff;
+  padding-top:90px; /* ✅ ANTI KETIMPA NAVBAR */
+}
+
+/* ================= NAVBAR ================= */
+.topbar{
+  position:fixed;
   top:0;
-  z-index:1000;
+  left:0;
+  right:0;
+  z-index:9999;
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
   padding:1rem 1.5rem;
   background:#000;
   border-bottom:1px solid #1f2933;
 }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:.7rem;
-    }
+.brand{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  font-weight:700;
+  font-size:1.1rem;
+  color:#facc15;
+}
 
-    .logo-img{
-      width:44px;
-      height:44px;
-      border-radius:50%;
-      border:2px solid #d4af37;
-    }
+.brand img{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  object-fit:cover;
+}
 
-    .brand-name{
-      font-size:1.2rem;
-      font-weight:900;
-      color:#d4af37;
-    }
+.nav-right{
+  display:flex;
+  gap:.6rem;
+}
 
-    .nav a{
-      color:#e5e7eb;
-      text-decoration:none;
-      padding:.4rem .8rem;
-      border-radius:8px;
-      border:1px solid #374151;
-      font-weight:600;
-      margin-left:.4rem;
-    }
+.nav-right a{
+  text-decoration:none;
+  color:#fff;
+  border:1px solid #facc15;
+  padding:.45rem .85rem;
+  border-radius:8px;
+  font-size:.85rem;
+}
 
-    .nav a:hover,
-    .nav a.active{
-      background:#ff9900;
-      color:black;
-    }
-
-    /* ==== CONTENT ==== */
-    .container{
+/* ================= CONTAINER ================= */
+.container{
   max-width:900px;
-  margin:4.5rem auto 2rem;
+  margin:auto;
   padding:1rem;
 }
 
-    .card{
-      background:#000;
-      border:1px solid #1f2933;
-      border-radius:16px;
-      padding:1.5rem;
-      display:grid;
-      grid-template-columns:1fr;
-      gap:1.5rem;
-    }
+.card{
+  background:#0b0b0b;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 10px 40px rgba(0,0,0,.6);
+}
 
-    @media(min-width:768px){
-      .card{
-        grid-template-columns:1fr 1fr;
-      }
-    }
+.card img{
+  width:100%;
+  height:auto;
+  display:block;
+}
 
-    .card img{
-      width:100%;
-      border-radius:14px;
-      border:1px solid #1f2933;
-    }
+.category{
+  background:#1f2933;
+  color:#fff;
+  display:inline-block;
+  padding:.3rem .7rem;
+  border-radius:999px;
+  font-size:.75rem;
+  margin-bottom:.6rem;
+}
 
-    .badge{
-      display:inline-block;
-      background:#1f2933;
-      color:#9ca3af;
-      padding:.3rem .7rem;
-      border-radius:999px;
-      font-size:.75rem;
-      margin-bottom:.6rem;
-    }
+.content{
+  padding:1.2rem;
+}
 
-    h1{
-      margin:.4rem 0;
-      color:#e5e7eb;
-    }
+h1{
+  font-size:1.6rem;
+  margin-bottom:.5rem;
+}
 
-    .price{
-      font-size:1.4rem;
-      font-weight:900;
-      color:#ff9900;
-      margin:.8rem 0;
-    }
+.price{
+  color:#facc15;
+  font-size:1.3rem;
+  font-weight:700;
+  margin-bottom:.7rem;
+}
 
-    .desc{
-      color:#9ca3af;
-      font-size:.95rem;
-      line-height:1.5;
-    }
+.desc{
+  color:#cbd5e1;
+  line-height:1.5;
+  font-size:.95rem;
+  margin-bottom:1.2rem;
+}
 
-    .btn-group{
-      margin-top:1.5rem;
-      display:grid;
-      gap:.7rem;
-    }
+.btn{
+  width:100%;
+  background:#f59e0b;
+  border:none;
+  color:#000;
+  font-size:1rem;
+  font-weight:700;
+  padding:.9rem;
+  border-radius:12px;
+  cursor:pointer;
+}
 
-    .btn-amazon{
-      background:#ff9900;
-      color:black;
-      border:none;
-      border-radius:12px;
-      padding:.8rem;
-      font-weight:900;
-      font-size:1rem;
-      cursor:pointer;
-    }
-
-    .btn-shopee{
-      background:#ee4d2d;
-      color:white;
-      border:none;
-      border-radius:12px;
-      padding:.8rem;
-      font-weight:900;
-      font-size:1rem;
-      cursor:pointer;
-    }
-
-    footer{
-      text-align:center;
-      padding:1.5rem;
-      color:#9ca3af;
-      font-size:.8rem;
-    }
-  </style>
+</style>
 </head>
 
 <body>
 
-<!-- ==== HEADER ==== -->
+<!-- ================= NAVBAR ================= -->
 <header class="topbar">
   <div class="brand">
-    <img src="liafiz-logo.webp" class="logo-img">
-    <div class="brand-name">Liafiz</div>
+    <img src="logo.png" alt="Liafiz">
+    Liafiz
   </div>
-
-  <nav class="nav">
+  <div class="nav-right">
     <a href="index.html">Home</a>
+    <a href="shopee.html">Shopee</a>
     <a href="amazon.html">Amazon</a>
-    <a href="https://shopee.co.id" target="_blank">Shopee</a>
-  </nav>
+  </div>
 </header>
 
-<!-- ==== CONTENT ==== -->
+<!-- ================= PRODUK ================= -->
 <div class="container">
   <div class="card">
 
-    <div>
-      <img id="img" src="">
-    </div>
+    <img id="img" src="" alt="Produk">
 
-    <div>
-      <span class="badge" id="category"></span>
+    <div class="content">
+      <span class="category" id="cat"></span>
       <h1 id="name"></h1>
       <div class="price" id="price"></div>
-      <div class="desc" id="desc"></div>
+      <p class="desc" id="desc"></p>
 
-      <div class="btn-group">
-        <button id="btnAmazon" class="btn-amazon" onclick="buyAmazon()">
-          🛒 Beli di Amazon
-        </button>
-
-        <button class="btn-shopee" onclick="buyShopee()">
-          🛍 Beli di Shopee
-        </button>
-      </div>
+      <button class="btn" id="buyBtn">Beli di Amazon</button>
     </div>
-
   </div>
 </div>
 
-<footer>
-  © 2025 Liafiz — Affiliate Store
-</footer>
-
 <script>
-/* ===== DATABASE PRODUK ===== */
 const PRODUCTS = [
-  {
-    id:1,
-    name:"Bucket Hat Canvas",
-    category:"Topi",
-    price:129000,
-    image:"https://picsum.photos/id/1005/800/800",
-    amazonCode:"01"
-  },
-  {
-    id:2,
-    name:"Crossbody Mini Bag",
-    category:"Tas",
-    price:249000,
-    image:"https://picsum.photos/id/1011/800/800",
-    amazonCode:"02"
-  },
-  {
-    id:3,
-    name:"Kalung Layered Emas",
-    category:"Perhiasan",
-    price:189000,
-    image:"https://picsum.photos/id/1027/800/800",
-    amazonCode:"03"
-  },
-  {
-    id:4,
-    name:"Beanie Knit Cozy",
-    category:"Topi",
-    price:99000,
-    image:"https://picsum.photos/id/1025/800/800",
-    amazonCode:"04"
-  },
-  {
-    id:5,
-    name:"Tote Bag Organik",
-    category:"Tas",
-    price:149000,
-    image:"https://picsum.photos/id/1018/800/800",
-    amazonCode:"05"
-  },
-  {
-    id:6,
-    name:"Gelang Rantai Stainless",
-    category:"Perhiasan",
-    price:89000,
-    image:"https://picsum.photos/id/1001/800/800",
-    amazonCode:"06"
-  }
+  { id:1, name:"Bucket Hat Canvas", category:"Topi", price:129000, image:"https://picsum.photos/id/1005/800/800", asin:"B0D1BVHC52" },
+  { id:2, name:"Crossbody Mini Bag", category:"Tas", price:249000, image:"https://picsum.photos/id/1011/800/800", asin:"B0DYJKCVLL" },
+  { id:3, name:"Kalung Layered Emas", category:"Perhiasan", price:189000, image:"https://picsum.photos/id/1027/800/800", asin:"B0D83ZT6YT" },
+  { id:4, name:"Beanie Knit Cozy", category:"Topi", price:99000, image:"https://picsum.photos/id/1025/800/800", asin:"B08Q9SCLXM" },
+  { id:5, name:"Tote Bag Organik", category:"Tas", price:149000, image:"https://picsum.photos/id/1018/800/800", asin:"BODQCV6RCC" },
+  { id:6, name:"Gelang Rantai Stainless", category:"Perhiasan", price:89000, image:"https://picsum.photos/id/1001/800/800", asin:"B08GWYCGHV" }
 ];
 
-/* ===== DATABASE ASIN AMAZON ===== */
-const AMAZON = {
-  "01": "B0D1BVHC52",
-  "02": "B0DYJKCVLL",
-  "03": "B0D83ZT6YT",
-  "04": "B08Q9SCLXM",
-  "05": "BODQCV6RCC",
-  "06": "B08GWYCGHV"
-};
-
-/* ===== LINK SHOPEE KOLEKSI ===== */
-const SHOPEE_LINK = "https://shopee.co.id";
-
-/* ===== AMBIL ID DARI URL ===== */
+// ===== AMBIL ID DARI URL =====
 const params = new URLSearchParams(window.location.search);
 const id = Number(params.get("id"));
-
 const product = PRODUCTS.find(p => p.id === id);
 
+// ===== TAMPILKAN DATA =====
 if(!product){
-  document.body.innerHTML =
-    "<h2 style='text-align:center;margin-top:3rem'>Produk tidak ditemukan</h2>";
+  document.body.innerHTML = "<h2 style='text-align:center;margin-top:6rem'>Produk tidak ditemukan</h2>";
 }else{
   document.getElementById("img").src = product.image;
   document.getElementById("name").textContent = product.name;
-  document.getElementById("category").textContent = product.category;
-  document.getElementById("price").textContent =
-    "Rp " + product.price.toLocaleString("id-ID");
+  document.getElementById("price").textContent = "Rp " + product.price.toLocaleString("id-ID");
+  document.getElementById("cat").textContent = product.category;
   document.getElementById("desc").textContent =
-    "Produk pilihan Liafiz, kualitas premium dan cocok untuk kebutuhan harian kamu.";
+    `Produk pilihan Liafiz, kualitas premium dan cocok untuk kebutuhan harian kamu.`;
 
-  document.getElementById("btnAmazon").dataset.code = product.amazonCode;
-}
-
-/* ===== BUY AMAZON ===== */
-function buyAmazon(){
-  const code = document.getElementById("btnAmazon").dataset.code;
-
-  if(AMAZON[code]){
-    const asin = AMAZON[code];
-    const url = `https://www.amazon.com/dp/${asin}?tag=liafiz0e-20`;
-    window.open(url, "_blank");
-  }else{
-    alert("Link Amazon belum tersedia.");
-  }
-}
-
-/* ===== BUY SHOPEE ===== */
-function buyShopee(){
-  window.open(SHOPEE_LINK, "_blank");
+  document.getElementById("buyBtn").onclick = () => {
+    const link = "https://www.amazon.com/dp/" + product.asin + "?tag=liafiz0e-20";
+    window.open(link, "_blank");
+  };
 }
 </script>
 
