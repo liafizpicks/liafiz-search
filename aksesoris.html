@@ -287,7 +287,7 @@
               <div style="margin-top:.5rem;display:flex;justify-content:space-between;align-items:center">
                 <div class="actions">
                   <button class="btn btn-primary" data-action="add" data-id="${p.id}">Tambah</button>
-                  <button class="btn btn-outline" data-action="view" data-id="${p.id}">Lihat</button>
+                  <button class="btn btn-outline" onclick="goDetail(${p.id})">Lihat</button>
                 </div>
               </div>
             </div>
@@ -398,5 +398,12 @@
       }
     });
   </script>
+  <script>
+  function goDetail(id){
+    const product = PRODUCTS.find(p => p.id === id);
+    localStorage.setItem("detailProduct", JSON.stringify(product));
+    window.location.href = "detail.html";
+  }
+</script>
 </body>
   </html>
