@@ -94,12 +94,26 @@
     }
 
     .card {
+      position: relative;
       min-width: 140px;
       background: #fff;
       border-radius: 14px;
       box-shadow: 0 6px 16px rgba(0,0,0,.08);
       text-decoration: none;
       color: #000;
+    }
+
+    .badge {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: #ee4d2d;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 999px;
+      z-index: 2;
     }
 
     .card img {
@@ -142,14 +156,14 @@
 
 <!-- ACTION BUTTONS -->
 <div class="actions">
-  <a class="btn shopee" href="https://collshp.com/liafizshop">
+  <a class="btn shopee" href="../shopee.html">
     <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
       <path stroke-linecap="round" stroke-linejoin="round" d="M3 7h18M3 7l2 14h14l2-14M9 7V5a3 3 0 016 0v2" />
     </svg>
     Shopee
   </a>
 
-  <a class="btn amazon" href="https://liafizpicks.github.io/liafiz-search/amazon.html">
+  <a class="btn amazon" href="../amazon.html">
     <svg fill="none" viewBox="0 0 24 24" stroke-width="2">
       <path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M7 10v10h10V10M9 10V6a3 3 0 016 0v4" />
     </svg>
@@ -163,6 +177,8 @@
   <div class="slider">
 
     <a class="card" href="https://shopee.co.id">
+      <div class="badge">🔥 Diskon</div>
+      <div class="badge">🔥 Ramadhan Deal</div>
       <img src="https://via.placeholder.com/300x300" />
       <div class="info">
         <div class="title">Sajadah Premium Travel</div>
