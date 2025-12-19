@@ -8,80 +8,105 @@
   <style>
     * {
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     body {
       margin: 0;
-      background: #f6f7f5;
+      min-height: 100vh;
+      background: linear-gradient(180deg, #b7c5a6, #f6f7f5);
       display: flex;
       justify-content: center;
+      align-items: center;
+      padding: 20px;
     }
 
-    .wrap {
+    .card {
       width: 100%;
       max-width: 420px;
+      background: #fff;
+      border-radius: 20px;
       padding: 24px;
       text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,.08);
     }
 
     .logo {
       width: 90px;
-      margin: 20px auto 10px;
+      height: 90px;
+      object-fit: contain;
+      margin-bottom: 12px;
     }
 
     h1 {
-      margin: 6px 0;
       font-size: 22px;
+      margin: 6px 0 4px;
     }
 
-    p {
-      color: #666;
+    .tagline {
       font-size: 14px;
-      margin-bottom: 24px;
+      color: #666;
+      margin-bottom: 22px;
     }
 
     .btn {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       text-decoration: none;
       background: #b7c5a6;
       color: #000;
-      padding: 14px;
+      padding: 15px;
       margin-bottom: 14px;
       border-radius: 14px;
-      font-weight: bold;
+      font-weight: 600;
+      transition: transform .1s ease, box-shadow .1s ease;
     }
 
     .btn:hover {
-      opacity: 0.9;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 14px rgba(0,0,0,.12);
+    }
+
+    .btn.secondary {
+      background: #f3f4f6;
     }
 
     .footer {
-      margin-top: 24px;
+      margin-top: 18px;
       font-size: 12px;
-      color: #999;
+      color: #aaa;
     }
   </style>
 </head>
 
 <body>
-  <div class="wrap">
+  <div class="card">
 
-    <!-- LOGO (OPSIONAL) -->
-    <!-- <img src="../liafiz-logo.webp" class="logo"> -->
+    <!-- LOGO -->
+    <img src="../liafiz-logo.webp" class="logo" alt="Liafiz">
 
     <h1>Liafiz Picks</h1>
-    <p>Semua rekomendasi resmi dari Liafiz</p>
+    <div class="tagline">
+      Rekomendasi terbaik & promo pilihan Liafiz
+    </div>
 
+    <!-- PRIORITAS JUALAN -->
     <a class="btn" href="../shopee.html">🛒 Shopee Best Deals</a>
     <a class="btn" href="../food.html">🍔 ShopeeFood Promo</a>
-    <a class="btn" href="../amazon.html">🌍 Amazon Picks</a>
-    <a class="btn" href="../wishlist.html">⭐ Koleksi Favorit</a>
-    <a class="btn" href="https://wa.me/62XXXXXXXXXX">💬 Chat Liafiz</a>
+
+    <!-- SEKUNDER -->
+    <a class="btn secondary" href="../amazon.html">🌍 Amazon Picks</a>
+    <a class="btn secondary" href="../wishlist.html">⭐ Koleksi Favorit</a>
+
+    <!-- KONTAK -->
+    <a class="btn secondary" href="https://wa.me/62XXXXXXXXXX">💬 Chat Liafiz</a>
 
     <div class="footer">
       © 2025 Liafiz
     </div>
+
   </div>
 </body>
 </html>
