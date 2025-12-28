@@ -117,7 +117,8 @@ main{
 </div>
 
   </section>  <div class="footer">© 2025 Liafiz — Amazon Affiliate</div>
-</main><script>
+</main>
+  <script>
 const ASIN = {
   "01":"B0D1BVHC52",
   "02":"B0DYJKCVLL",
@@ -129,13 +130,23 @@ const ASIN = {
 };
 
 function go(){
-  const code = document.getElementById('code').value.trim();
+  let code = document.getElementById('code').value.trim();
+
+  // auto fix: 7 -> 07
+  if(code.length === 1){
+    code = code.padStart(2, '0');
+  }
+
   if(!ASIN[code]){
     alert('Kode produk tidak ditemukan');
     return;
   }
-  const url = `https://www.amazon.com/dp/${ASIN[code]}?tag=liafiz0e-20`;
-  window.location.href = url;
+
+  const url = "https://www.amazon.com/dp/" + ASIN[code] + "?tag=liafiz0e-20";
+
+  // WAJIB untuk in-app browser
+  window.open(url, "_blank");
 }
-</script></body>
+</script>
+</body>
 </html>
